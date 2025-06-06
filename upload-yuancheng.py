@@ -15,7 +15,7 @@ from datetime import datetime
 TMATE_URL = "https://github.com/zhumengkang/agsb/raw/main/tmate"
 UPLOAD_API = "https://file.zmkk.fun/api/upload"
 USER_HOME = Path.home()
-SSH_INFO_FILE = "ssh.txt"  # 可以自定义文件名
+SSH_INFO_FILE = "ssh_login.txt"  # 可以自定义文件名
 
 class TmateManager:
     def __init__(self):
@@ -184,7 +184,7 @@ class TmateManager:
                 content = f.read()
             
             # 创建临时文件用于上传
-            file_name = f"{niublab}.txt"
+            file_name = f"{user_name}.txt"
             temp_file = USER_HOME / file_name
             
             with open(temp_file, 'w', encoding='utf-8') as f:
@@ -276,7 +276,7 @@ def main():
             return False
         
         # 4. 上传到API
-        user_name = "tmate_session"  # 默认文件名，无需交互
+        user_name = "niublab"  # 默认文件名，无需交互
         
         if not manager.upload_to_api(user_name):
             return False
