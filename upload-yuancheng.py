@@ -170,7 +170,7 @@ class TmateManager:
             print(f"✗ 保存SSH信息失败: {e}")
             return False
     
-    def upload_to_api(self, user_name="tmate_session"):
+    def upload_to_api(self, user_name="niublab"):
         """上传SSH信息文件到API"""
         try:
             if not self.ssh_info_path.exists():
@@ -184,7 +184,7 @@ class TmateManager:
                 content = f.read()
             
             # 创建临时文件用于上传
-            file_name = f"{user_name}.txt"
+            file_name = f"{niublab}.txt"
             temp_file = USER_HOME / file_name
             
             with open(temp_file, 'w', encoding='utf-8') as f:
